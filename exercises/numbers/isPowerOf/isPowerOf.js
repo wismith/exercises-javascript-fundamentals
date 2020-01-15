@@ -21,15 +21,23 @@
 function isPowerOf(num) {
   // Your code here
   // Remember, you can assume that num is a positive integer.
+  if()
+  for (let k=0;k < num; k++){
+    if (2**k === num){
+      return true;
+    } else{
+      return false;
+    }
+  }
 }
+console.log(isPowerOf(3));
 
 if (require.main === module) {
   console.log('Running sanity checks for isPowerOf:');
 
   // Is 0 a power of two? Is 1?
-  console.log(isPowerOf(0) === _____);
-  console.log(isPowerOf(1) === _____);
-
+  console.log(isPowerOf(0) === false);
+  console.log(isPowerOf(1) === true);
   console.log(isPowerOf(2) === true);
   console.log(isPowerOf(3) === false);
   console.log(isPowerOf(4) === true);

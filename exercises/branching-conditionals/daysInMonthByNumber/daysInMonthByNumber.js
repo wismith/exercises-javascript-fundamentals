@@ -21,14 +21,24 @@ function daysInMonthByNumber(monthNum) {
   }
 
   // This is your job. :)
+  let months30 = [4,6,9,11];
+  let months31 = [1,3,5,7,8,12];
+  if (months30.includes(monthNum)){
+    return 30;
+  } else if (months31.includes(monthNum)){
+    return 31;
+  } else {
+    return '28 or 29';
+  }
 }
 
 if (require.main === module) {
-  console.log('Running sanity checks for isZero:');
+  console.log('Running sanity checks for daysInMonthByNumber:');
 
-  console.log(daysInMonthByNumber(1) === _____);
-  console.log(daysInMonthByNumber(2) === _____);
-  console.log(daysInMonthByNumber(3) === _____);
+  console.log(daysInMonthByNumber(1) === 31);
+  console.log(daysInMonthByNumber(2) === '28 or 29');
+  console.log(daysInMonthByNumber(3) === 31);
+  console.log(daysInMonthByNumber(6) === 30);
 }
 
 module.exports = daysInMonthByNumber;

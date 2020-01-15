@@ -3,7 +3,7 @@
  *
  * @example
  *   power(2, 3) // => 8 (i.e., 2 * 2 * 2)
- *   power(-2, 3) // => -4 (i.e., -2 * -2 * -2)
+ *   power(-2, 3) // => -8 (i.e., -2 * -2 * -2)
  *   power(5, 6) // => 15625 (i.e., 5 * 5 * 5 * 5 * 5 * 6)
  *
  * @param {number} base The base
@@ -21,6 +21,7 @@ function power(base, exponent) {
 
     That means you don't have to deal with, e.g., power(2, 1.5).
   */
+  return base**exponent;
 }
 
 if (require.main === module) {

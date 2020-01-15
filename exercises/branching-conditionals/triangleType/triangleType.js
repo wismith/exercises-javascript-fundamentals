@@ -19,6 +19,7 @@
  */
 function triangleType(monthNum) {
   // This is your job. :)
+  
 }
 
 if (require.main === module) {

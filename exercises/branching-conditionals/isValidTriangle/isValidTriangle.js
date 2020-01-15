@@ -19,6 +19,20 @@ function isValidTriangle(a, b, c) {
     from 0º and you drawing the third side. What's the largest this third side
     could ever be?
   */
+  if (c > a & c > b ){
+    if (c < (a + b)){
+      return true;
+    } else {return false}
+  } else if (b > c & b > a){
+    if (b < (a+c)){
+      return true;
+    } else {return false}
+  } else if (a > b & a > c){
+    if (a < (b+c)){
+      return true;
+    } else {return false}
+  }
+
 }
 
 if (require.main === module) {

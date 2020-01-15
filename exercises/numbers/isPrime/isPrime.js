@@ -20,6 +20,17 @@ function isPrime(num) {
     and use pen/paper, index cards, etc. — anything that helps you think
     about it without getting stuck in JavaScript syntax.
   */
+  const factors = [];
+  for (let n = 1; n <= num; n++){
+    if (num/n - Math.floor(num/n) === 0){
+      factors.push(n);
+    }
+  }
+  if (factors.length === 2) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 if (require.main === module) {
@@ -30,6 +41,9 @@ if (require.main === module) {
   console.log(isPrime(4) === false);
 
   // Your own sanity checks go here
+  console.log(isPrime(17)===true);
+  console.log(isPrime(400)===false);
+  
 }
 
 module.exports = isPrime;

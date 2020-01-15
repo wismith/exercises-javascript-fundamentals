@@ -10,8 +10,11 @@
  * @returns {string} A capitalized copy of the string
  */
 
-function capitalize(num) {
+function capitalize(string) {
   // This is your job. :)
+  let firstLetter = string.slice(0,1).toUpperCase(); // Used slice and toUpperCase to isolate first letter and capitalize it
+  let finalString = firstLetter + string.slice(1); // Stitched together the new first letter and the remaining string
+  return finalString;
 }
 
 if (require.main === module) {
@@ -19,6 +22,10 @@ if (require.main === module) {
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+
+  console.log(capitalize('will'));
+  console.log(capitalize('supercalifragilisticexpialidocious'));
+
 }
 
 module.exports = capitalize;

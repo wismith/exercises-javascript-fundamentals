@@ -23,13 +23,33 @@
  */
 function fibonacci(n) {
   // This is your job. :)
+
+  if (n === 0){
+    return 0;
+  } else if (n === 1){
+    return 1;
+  } else {
+    const fibSequence = [0,1];
+    for (let i = 2; i <= n; i++){
+      let sumPrev2 = fibSequence[i-2] + fibSequence[i-1];
+      fibSequence.push(sumPrev2);
+    }
+    return fibSequence[n];
+  }
 }
+
+console.log(fibonacci(3));
 
 if (require.main === module) {
   console.log('Running sanity checks for fibonacci:');
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+
+  console.log(fibonacci(2) === 1);
+  console.log(fibonacci(3) === 2);
+  console.log(fibonacci(5) === 5);
+  console.log(fibonacci(7) === 13);
 }
 
 module.exports = fibonacci;

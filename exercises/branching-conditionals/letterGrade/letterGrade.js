@@ -15,6 +15,38 @@
  */
 function letterGrade(percentGrade) {
   // This is your job. :)
+
+  if (percentGrade < 0){
+    throw new Error(`Expect a percent number greater than or equal to 0. Received: ${percentGrade} `);
+  }
+
+  let theGrade = undefined
+  if (percentGrade < 60){
+    theGrade = 'F';
+  } else if (percentGrade < 63){
+    theGrade = 'D-';
+  } else if (percentGrade < 67){
+    theGrade = 'D';
+  } else if (percentGrade < 70){
+    theGrade = 'D+';
+  } else if (percentGrade < 73){
+    theGrade = 'C-';
+  } else if (percentGrade < 77){
+    theGrade = 'C';
+  } else if (percentGrade < 80){
+    theGrade = 'C+';
+  } else if (percentGrade < 83){
+    theGrade = 'B-';
+  } else if (percentGrade < 87){
+    theGrade = 'B';
+  } else if (percentGrade < 90){
+    theGrade = 'B+';
+  } else if (percentGrade < 93){
+    theGrade = 'A-';
+  } else if (percentGrade < 97){
+    theGrade = 'A';
+  } else {theGrade = 'A+'}
+  return theGrade;
 }
 
 if (require.main === module) {
@@ -22,6 +54,11 @@ if (require.main === module) {
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+
+  console.log(letterGrade(62) === 'D-');
+  console.log(letterGrade(99) === 'A+');
+  console.log(letterGrade(55) === 'F');
+  console.log(letterGrade(76) === 'C');
 }
 
 module.exports = letterGrade;
