@@ -19,26 +19,26 @@ function daysInMonthByNumber(monthNum) {
   if (!Number.isInteger(monthNum) || monthNum < 1 || monthNum > 12) {
     throw new Error(`Expected a month number from 1-12, received: ${monthNum}`);
   }
-
-  // This is your job. :)
-  let months30 = [4,6,9,11];
-  let months31 = [1,3,5,7,8,12];
-  if (months30.includes(monthNum)){
-    return 30;
-  } else if (months31.includes(monthNum)){
-    return 31;
-  } else {
-    return '28 or 29';
-  }
+  let monthToDays = [31,28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+  return monthToDays[monthNum-1];
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for daysInMonthByNumber:');
-
-  console.log(daysInMonthByNumber(1) === 31);
-  console.log(daysInMonthByNumber(2) === '28 or 29');
-  console.log(daysInMonthByNumber(3) === 31);
-  console.log(daysInMonthByNumber(6) === 30);
+  
+  console.log(daysInMonthByNumber(1)===31);
+  console.log(daysInMonthByNumber(2)===28);
+  console.log(daysInMonthByNumber(3)===31);
+  console.log(daysInMonthByNumber(4)===30);
+  console.log(daysInMonthByNumber(5)===31);
+  console.log(daysInMonthByNumber(6)===30);
+  console.log(daysInMonthByNumber(7)===31);
+  console.log(daysInMonthByNumber(8)===31);
+  console.log(daysInMonthByNumber(9)===30);
+  console.log(daysInMonthByNumber(10)===31);
+  console.log(daysInMonthByNumber(11)===30);
+  console.log(daysInMonthByNumber(12)===31);
+  
 }
 
 module.exports = daysInMonthByNumber;
