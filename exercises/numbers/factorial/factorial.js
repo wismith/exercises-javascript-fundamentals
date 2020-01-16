@@ -23,14 +23,29 @@
  * @returns {number} The factorial of `n`
  */
 function factorial(n) {
-  // This is your job. :)
+  let result = n;
+  if (n > 1){
+    while (n > 1){
+      result *= (n-1);
+      n--;
+    }
+  }
+  return result;
 }
+
 
 if (require.main === module) {
   console.log('Running sanity checks for factorial:');
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+
+  console.log(factorial(3)===6);
+  console.log(factorial(6) === 720);
+  console.log(factorial(8) === 40320);
+  console.log(factorial(9) === 362880);
+  
+  
 }
 
 module.exports = factorial;
