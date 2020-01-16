@@ -23,8 +23,8 @@ if (require.main === module) {
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
 
-  console.log(capitalize('will'));
-  console.log(capitalize('supercalifragilisticexpialidocious'));
+  console.log(capitalize('will') === 'Will');
+  console.log(capitalize('supercalifragilisticexpialidocious') === 'Supercalifragilisticexpialidocious');
 
 }
 
