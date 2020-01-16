@@ -9,9 +9,7 @@
 
 function countWords(string) {
   // This is your job. :)
-
-  let wordList = string.split(' ');
-  return wordList.length;
+  return string.split(/ +/).length;  // This seems to work.  Why?
 }
 
 if (require.main === module) {
@@ -21,7 +19,8 @@ if (require.main === module) {
   // How else will you be sure your code does what you think it does?
 
   console.log(countWords('Hi I am going to the store') === 7);
-  console.log(countWords('I am a guy from Alabama') === 6);
+  console.log(countWords('I am a guy from  Alabama') === 6); // two spaces between "from" and "Alabama"
+  console.log(countWords('Hello friend   of  mine') === 4); // has instances of single, double, triple space
   
 }
 
