@@ -17,9 +17,23 @@
  *   and 12 for December.
  * @return {number} The number of days in the given month
  */
-function triangleType(monthNum) {
-  // This is your job. :)
-  
+function triangleType(a,b,c) {
+  if (a <= 0 || b <= 0 || c <= 0){
+    return 'invalid';
+  } else {
+      let [x,y,z] = [a,b,c].sort();
+      if (z < x + y){
+        if (z**2 < x**2 + y**2){
+          return 'acute';
+        } else if (z**2 === x**2 + y**2){
+          return 'right';
+        } else {
+          return 'obtuse';
+        }
+      } else {
+        return 'invalid'
+      }
+  }
 }
 
 if (require.main === module) {
@@ -27,6 +41,12 @@ if (require.main === module) {
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+
+  console.log(triangleType(4,3,5) === 'right');
+  console.log(triangleType(3,3,3) === 'acute');
+  console.log(triangleType(3,3,5) === 'obtuse');
+  console.log(triangleType(-1,3,3) === 'invalid');
+  console.log(triangleType(1,2,3) === 'invalid');
 }
 
 module.exports = triangleType;
