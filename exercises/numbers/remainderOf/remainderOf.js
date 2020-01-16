@@ -25,7 +25,7 @@
 
 function remainderOf(num1, num2) {
   while (num1 >= 0){
-    num1 -= num2
+    num1 -= num2;
   }
   return num1 + num2;
 }
