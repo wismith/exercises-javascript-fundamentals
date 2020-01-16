@@ -21,9 +21,12 @@ function isValidTriangle(a, b, c) {
   */
 
   // How to rearrange a,b,c such that a <= b and b <= c ?
-  let sides = [a,b,c].sort();
-  return sides[2] < (sides[0] + sides[1]);
-
+  if (a <= 0 || b <= 0 || c <= 0){
+    return false;
+  } else{
+  let [x,y,z] = [a,b,c].sort();
+  return z < x + y;
+  }
 }
 
 if (require.main === module) {
@@ -39,6 +42,13 @@ if (require.main === module) {
 
   // Add your own sanity checks here. Test negative cases.
   // How else will you be sure your code does what you think it does?
+
+  console.log(isValidTriangle(1,2,3) === false);
+  console.log(isValidTriangle(1,4,4) === true);
+  console.log(isValidTriangle(3,3,-1) === false);
+  console.log(isValidTriangle(10,9,8) === true);
+  console.log(isValidTriangle(-3,-4,-5) === false);
+
 }
 
 module.exports = isValidTriangle;
