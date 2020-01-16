@@ -15,23 +15,24 @@ function isPrime(num) {
     Your code goes here.
 
     Work out one version that works and don't worry about performance.
-
+ 
     If you're having trouble working it out in code, step out of JS-land
     and use pen/paper, index cards, etc. — anything that helps you think
     about it without getting stuck in JavaScript syntax.
   */
-  const factors = [];
-  for (let n = 1; n <= num; n++){
-    if (num/n - Math.floor(num/n) === 0){
-      factors.push(n);
-    }
-  }
-  if (factors.length === 2) {
-    return true;
-  } else {
+  
+  if (num ===1) {
     return false;
+  } else {
+    for (let n = 2; n <= num**(1/2); n++){
+      if (num % n === 0){
+        return false;
+      }
+    }
+    return true;
   }
 }
+
 
 if (require.main === module) {
   console.log('Running sanity checks for isPrime:');
@@ -43,6 +44,7 @@ if (require.main === module) {
   // Your own sanity checks go here
   console.log(isPrime(17)===true);
   console.log(isPrime(400)===false);
+  console.log(isPrime(223)===true);
   
 }
 
