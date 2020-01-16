@@ -22,31 +22,32 @@ function letterGrade(percentGrade) {
 
   let theGrade = undefined
   if (percentGrade < 60){
-    theGrade = 'F';
+    return 'F';
   } else if (percentGrade < 63){
-    theGrade = 'D-';
+    return 'D-';
   } else if (percentGrade < 67){
-    theGrade = 'D';
+    return 'D';
   } else if (percentGrade < 70){
-    theGrade = 'D+';
+    return 'D+';
   } else if (percentGrade < 73){
-    theGrade = 'C-';
+    return 'C-';
   } else if (percentGrade < 77){
-    theGrade = 'C';
+    return 'C';
   } else if (percentGrade < 80){
-    theGrade = 'C+';
+    return 'C+';
   } else if (percentGrade < 83){
-    theGrade = 'B-';
+    return 'B-';
   } else if (percentGrade < 87){
-    theGrade = 'B';
+    return 'B';
   } else if (percentGrade < 90){
-    theGrade = 'B+';
+    return 'B+';
   } else if (percentGrade < 93){
-    theGrade = 'A-';
+    return 'A-';
   } else if (percentGrade < 97){
-    theGrade = 'A';
-  } else {theGrade = 'A+'}
-  return theGrade;
+    return 'A';
+  } else {
+    return 'A+'}
+  
 }
 
 if (require.main === module) {
