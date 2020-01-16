@@ -14,13 +14,14 @@
 
 function replaceCharacter(string, target, replaceWith) {
   // This is your job. :)
-  let result = string
-  for (let i = 0; i < string.length; i++){
-    if (string[i] === target){
-      result[i] = replaceWith;
+  let letters = string.split('');
+  for (let letter of letters){
+    if (letter === target){
+      letters[letters.indexOf(letter)] = replaceWith;
     }
   }
-  return result;
+  return letters.join('');
+
 }
 console.log(replaceCharacter('hi', 'i', '7'));
 if (require.main === module) {
@@ -30,7 +31,7 @@ if (require.main === module) {
   // How else will you be sure your code does what you think it does?
 
   console.log(replaceCharacter('hi', 'i', '7') === 'h7');
-
+  console.log(replaceCharacter('eel', 'e', 'o') === 'ool');
 }
 
 module.exports = replaceCharacter;
