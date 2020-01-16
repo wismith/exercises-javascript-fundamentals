@@ -10,8 +10,8 @@
 function countLetter(string, letter) {
   // This is your job. :)
   let letterCount = 0;
-  for (let i of string) {
-    if (i === letter){
+  for (let char of string) {
+    if (char === letter){
       letterCount++;
     }
   }
