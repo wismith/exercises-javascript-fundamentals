@@ -24,42 +24,44 @@ function primeFactors(num) {
     about it without getting stuck in JavaScript syntax.
   */
 
-  // first, I need to create a list of all factors
-  const factorList = [];
-  const factorsPrime = [];
-  for (let n = 1; n <= num; n++){
-    if (num/n - Math.floor(num/n) === 0){
-      factorList.push(n);
+  // first, I need to create a list for prime factors
+  const primeFactors = [];
+  let workingNumber = num;
+  for (let n = 2; n <= num/2; n++){
+    while (workingNumber % n === 0){
+      primeFactors.push(n);
+      workingNumber /= n;
     }
   }
-  for (let factor of factorList){
-    const subFactors = [];
-    for (let n = 1; n <= factor; n++){
-      if (factor/n - Math.floor(factor/n) === 0){
-        subFactors.push(n);
-      }
-    }
-    if (subFactors.length === 2){
-      factorsPrime.push(factor);
+  return primeFactors;
+}
+// Create function to check arrays
+function outputEqualsExpected(output,expected){
+  if (output.length !== expected.length){
+    return false;
+  }
+
+  for (let i = 0; i < output.length; i++){
+    if (output[i] !== expected[i]){
+      return false;
     }
   }
-  return factorsPrime;
+
+  return true;
 }
 
-console.log(typeof primeFactors(15));
-console.log(typeof [3,5]);
 if (require.main === module) {
   console.log('Running sanity checks for primeFactors:');
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
-  console.log(primeFactors(12));
-  console.log(primeFactors(15));
-  console.log(primeFactors(121));
 
-
-  console.log(primeFactors(12) === [2,3]);
-  console.log(primeFactors(15) === [3,5]);
+  console.log(outputEqualsExpected(primeFactors(12), [2,2,3]));
+  console.log(outputEqualsExpected(primeFactors(15), [3,5]));
+  console.log(outputEqualsExpected(primeFactors(121), [11,11]));
+  console.log(outputEqualsExpected(primeFactors(64), [2,2,2,2,2,2]));
+  // These sanity checks are NOT working, because array === array returns false.  Why?
+  
 }
 
 module.exports = primeFactors;
