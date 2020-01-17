@@ -24,26 +24,15 @@
  * @returns {string} Returns 'win', 'lose', or 'draw' depending on
  *  whether the first player won, lost, or drew the match.
  */
-function rockPaperScissorsWinner(p1,p2) {
-  if (p1 === p2){
-    return 'draw'
-  } else {
-    if (p1 === 0){
-      if (p2 === 1){
-        return 'win';
-      } else {return 'lose'}
-    } else if (p1 === 1){
-      if (p2 === 0){
-        return 'lose';
-      } else {return 'win'}
-    } else {
-      if (p2 === 0){
-        return 'win';
-      } else {return 'lose'}
-      }
-    }
-}
 
+function rockPaperScissorsWinner(p1,p2){
+  let mod = (p2-p1) % 3;
+  if (mod === 1 || mod === -2){
+    return 'win';
+  } else if (mod === 0){
+    return 'draw';
+  } else {return 'lose'}
+}
 
 if (require.main === module) {
   console.log('Running sanity checks for rockPaperScissorsWinner:');
@@ -54,6 +43,10 @@ if (require.main === module) {
   console.log(rockPaperScissorsWinner(0,1) === 'win');
   console.log(rockPaperScissorsWinner(1,1) === 'draw');
   console.log(rockPaperScissorsWinner(2,1) === 'lose');
+  console.log(rockPaperScissorsWinner(2,0) === 'win');
+  console.log(rockPaperScissorsWinner(1,2) === 'win');
+  console.log(rockPaperScissorsWinner(2,2) === 'draw');
+  console.log(rockPaperScissorsWinner(0,2) === 'lose');
 }
 
 module.exports = rockPaperScissorsWinner;
