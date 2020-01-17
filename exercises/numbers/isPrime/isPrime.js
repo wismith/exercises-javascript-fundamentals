@@ -12,8 +12,6 @@
  */
 function isPrime(num) {
   /*
-    Your code goes here.
-
     Work out one version that works and don't worry about performance.
  
     If you're having trouble working it out in code, step out of JS-land
@@ -23,15 +21,15 @@ function isPrime(num) {
   
   if (num ===1) {
     return false;
-  } else {
-    for (let n = 2; n <= num**(1/2); n++){
-      if (num % n === 0){
-        return false;
-      }
-    }
-    return true;
   }
+  for (let n = 2; n <= num**(1/2); n++){
+    if (num % n === 0){
+      return false;
+    }
+  }
+  return true;
 }
+
 
 
 if (require.main === module) {
