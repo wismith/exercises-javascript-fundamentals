@@ -21,10 +21,8 @@
 function isPowerOfTwo(num) {
   // Remember, you can assume that num is a positive integer.
   let power = 1;
-  let exp = 0;
   while (power < num){
-    power = 2**exp;
-    exp++;
+    power *= 2;
   }
   return power === num;
 
