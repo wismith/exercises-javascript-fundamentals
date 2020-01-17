@@ -12,14 +12,11 @@
  * @returns {boolean} The sum of every integer between the two input integers, inclusive
  */
 function sumOfRange(leftSummand, rightSummand) {
-  // This is your job. :)
-  let n = leftSummand;
-  let sum = 0;
-  while (n <= rightSummand){
+  let workingSum = 0;
+  for (let n = leftSummand; n <= rightSummand; n++){
     sum += n;
-    n++;
   }
-  return sum;
+  return workingSum;
 }
 
 if (require.main === module) {
