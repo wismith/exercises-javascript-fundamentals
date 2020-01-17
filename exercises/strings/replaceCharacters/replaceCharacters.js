@@ -14,14 +14,11 @@
 function replaceCharacters(string, replacementDict) {
   let letters = string.split('');
   for (let letter of letters){
-    for (let key of Object.keys(replacementDict)){
-      if (letter === key){
-        letters[letters.indexOf(letter)] = replacementDict[key];
-      }
+    if (replacementDict[letter]){
+      letters[letters.indexOf(letter)] = replacementDict[letter];
     }
   }
   return letters.join('');
-
 }
 
 if (require.main === module) {
