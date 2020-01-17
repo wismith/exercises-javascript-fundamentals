@@ -15,8 +15,6 @@
  */
 function primeFactors(num) {
   /*
-    Your code goes here.
-
     Work out one version that works and don't worry about performance.
 
     If you're having trouble working it out in code, step out of JS-land
@@ -60,7 +58,6 @@ if (require.main === module) {
   console.log(outputEqualsExpected(primeFactors(15), [3,5]));
   console.log(outputEqualsExpected(primeFactors(121), [11,11]));
   console.log(outputEqualsExpected(primeFactors(64), [2,2,2,2,2,2]));
-  // These sanity checks are NOT working, because array === array returns false.  Why?
   
 }
 
