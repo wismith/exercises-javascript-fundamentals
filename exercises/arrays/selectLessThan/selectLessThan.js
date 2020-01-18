@@ -17,14 +17,35 @@
  *  strictly less than the threshold
  */
 function selectLessThan(array, threshold) {
-  // This is your job. :)
+  const lessThan = [];
+  for (let element of array){
+    if (element < threshold){
+      lessThan.push(element);
+    }
+  }
+  return lessThan;
 }
 
+function outputEqualsExpected(output,expected){
+  if (output.length !== expected.length){
+    return false;
+  }
+  
+  for (let i = 0; i < output.length; i++){
+    if (output[i] !== expected[i]){
+      return false;
+    }
+  }
+
+  return true;
+}
 if (require.main === module) {
   console.log('Running sanity checks for selectLessThan:');
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+  console.log(outputEqualsExpected(selectLessThan([2,3,4,5,6], 5), [2,3,4]));
+  console.log(outputEqualsExpected(selectLessThan([5,6,7], 4), []));
 }
 
 module.exports = selectLessThan;
