@@ -19,7 +19,11 @@
  * @returns {number} The median of the numbers in the array
  */
 function median(array) {
-  // This is your job. :)
+  if (array.length % 2 != 0){
+    return array.sort()[Math.ceil((array.length-1)/2)];
+  } else {
+    return (array.sort()[array.length/2 -1] + array.sort()[array.length/2])/2;
+  }
 }
 
 if (require.main === module) {
@@ -27,6 +31,12 @@ if (require.main === module) {
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+
+  console.log(median([1,2,3,4,5])===3);
+  console.log(median([3,4,6,7])===5);
+  console.log(median([3,5,1,4,2])===3);
+  console.log(median([6,3,4,7])===5);
+
 }
 
 module.exports = median;
