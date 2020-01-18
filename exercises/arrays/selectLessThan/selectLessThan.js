@@ -36,7 +36,6 @@ function outputEqualsExpected(output,expected){
       return false;
     }
   }
-
   return true;
 }
 if (require.main === module) {
