@@ -19,14 +19,36 @@
  *  strictly less the given threshold
  */
 function selectShorterThan(array, threshold) {
-  // This is your job. :)
+  const shorterThan = [];
+  for (let element of array){
+    if (element.length < threshold){
+      shorterThan.push(element);
+    }
+  }
+  return shorterThan;
 }
 
+function outputEqualsExpected(output,expected){
+  if (output.length !== expected.length){
+    return false;
+  }
+  
+  for (let i = 0; i < output.length; i++){
+    if (output[i] !== expected[i]){
+      return false;
+    }
+  }
+  return true;
+}
 if (require.main === module) {
   console.log('Running sanity checks for selectShorterThan:');
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+
+  console.log(outputEqualsExpected(selectShorterThan(['hi', 'mom'], 4), ['hi', 'mom']));
+  console.log(outputEqualsExpected(selectShorterThan(['hello', 'friend'], 3), []));
+  
 }
 
 module.exports = selectShorterThan;
