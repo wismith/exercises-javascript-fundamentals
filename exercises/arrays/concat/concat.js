@@ -22,14 +22,37 @@
  * @returns {object[]} The concatenation of the two given arrays
  */
 function concat(leftArray, rightArray) {
-  // This is your job. :)
+  const result = [];
+  for (let element of leftArray){
+    result.push(element);
+  }
+  for (let element of rightArray){
+    result.push(element);
+  }
+  return result;
 }
 
+function outputEqualsExpected(output,expected){
+  if (output.length !== expected.length){
+    return false;
+  }
+  
+  for (let i = 0; i < output.length; i++){
+    if (output[i] !== expected[i]){
+      return false;
+    }
+  }
+
+  return true;
+}
 if (require.main === module) {
   console.log('Running sanity checks for concat:');
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+  console.log(outputEqualsExpected(concat([1,2], [3,4]), [1,2,3,4]));
+  console.log(outputEqualsExpected(concat(['hi', 'mom'], ['!']), ['hi', 'mom', '!']));
+
 }
 
 module.exports = concat;
