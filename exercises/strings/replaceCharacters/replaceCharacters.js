@@ -13,11 +13,12 @@
 
 function replaceCharacters(string, replacementDict) {
   let letters = string.split('');
-  for (let letter of letters){
-    if (replacementDict[letter]){
-      letters[letters.indexOf(letter)] = replacementDict[letter];
+  for (let i = 0; i < string.length; i++){
+    if (replacementDict[letters[i]] || typeof replacementDict[letters[i]] === 'string'){
+      letters.splice(i,1,replacementDict[letters[i]]);
     }
   }
+  
   return letters.join('');
 }
 
@@ -29,6 +30,7 @@ if (require.main === module) {
 
   console.log(replaceCharacters('hello', {'l': '1', 'o':'0'}) === 'he110');
   console.log(replaceCharacters('will', {'w': '7', 'i':'8', 'l':'9'}) === '7899');
+  console.log(replaceCharacters('jetty', {'t': ''}) === 'jey');
 
 }
 
