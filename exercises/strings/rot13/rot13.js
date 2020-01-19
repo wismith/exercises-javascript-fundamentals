@@ -29,7 +29,22 @@
  */
 
 function rot13(string) {
-  // This is your job. :)
+  let stringLower = string.toLowerCase();
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let newString = '';
+  for (let char of stringLower){
+    if (alphabet.includes(char)){
+      if (alphabet.indexOf(char) < 13){
+        newString += alphabet[alphabet.indexOf(char) + 13];
+      } else {
+        newString += alphabet[alphabet.indexOf(char) - 13];
+      }
+    } else {
+      newString += char;
+    }
+  }
+  return newString;
+
 }
 
 if (require.main === module) {
@@ -37,6 +52,9 @@ if (require.main === module) {
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+  console.log(rot13('Hello, world') === 'uryyb, jbeyq');
+  console.log(rot13('uryyb, jbeyq') === 'hello, world');
+  
 }
 
 module.exports = rot13;
