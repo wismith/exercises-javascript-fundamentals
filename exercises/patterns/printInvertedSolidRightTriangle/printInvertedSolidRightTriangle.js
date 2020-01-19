@@ -33,7 +33,7 @@ function printInvertedSolidRightTriangle(height) {
     2. How many characters should be on each line?
   */
   for (let i = 0; i < height; i++) {
-    let numChars = _____;
+    let numChars = height - i;
 
     helpers.printCountTimes('#', numChars);
     helpers.printNewLine();
