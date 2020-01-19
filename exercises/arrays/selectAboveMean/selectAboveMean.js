@@ -15,7 +15,36 @@
  *   greater than the mean.
  */
 function selectAboveMean(array) {
-  // This is your job. :)
+  function getMean(array) {
+    let sum = 0;
+    for (let num of array){
+      sum += num;
+    }
+    return sum/array.length;
+  }
+  const mean = getMean(array);
+
+  const newArray = [];
+  for (let element of array){
+    if (element > mean){
+      newArray.push(element);
+    }
+  }
+  return newArray;
+}
+
+function outputEqualsExpected(output,expected){
+  if (output.length !== expected.length){
+    return false;
+  }
+  
+  for (let i = 0; i < output.length; i++){
+    if (output[i] !== expected[i]){
+      return false;
+    }
+  }
+
+  return true;
 }
 
 if (require.main === module) {
@@ -23,6 +52,10 @@ if (require.main === module) {
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+  console.log(outputEqualsExpected(selectAboveMean([1,2,3,4]), [3,4]));
+  console.log(outputEqualsExpected(selectAboveMean([1,2,3,100]), [100]));
+  
+
 }
 
 module.exports = selectAboveMean;
