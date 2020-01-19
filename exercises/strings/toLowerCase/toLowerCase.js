@@ -16,7 +16,19 @@
  */
 
 function toLowerCase(string) {
-  // This is your job. :)
+  // Create a new empty string to return
+  let stringLower = '';
+
+  // Use for loop using ASCII range/codes
+  for (let char of string){
+    let charCode = char.charCodeAt();
+    if (charCode >= 65 && charCode <= 90){
+      stringLower += String.fromCharCode(charCode + 32);
+    } else {
+      stringLower += char;
+    }
+  }
+  return stringLower;
 }
 
 if (require.main === module) {
@@ -24,6 +36,9 @@ if (require.main === module) {
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+
+  console.log(toLowerCase('HellO fRiEnds') === 'hello friends');
+  console.log(toLowerCase('HI MOM') === 'hi mom');
 }
 
 module.exports = toLowerCase;
