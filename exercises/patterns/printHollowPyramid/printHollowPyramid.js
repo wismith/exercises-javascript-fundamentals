@@ -29,7 +29,23 @@ let helpers = require('../printHelpers');
  */
 function printHollowPyramid(height) {
   for (let i = 0; i < height; i++) {
-    // This is your job. :)
+    let numMiddleSpaces = 1 + 2*(i-1);
+    let numEndSpaces = height - i - 1;
+    let numChars = 1;
+    if (i === 0){
+      helpers.printCountTimes(' ', numEndSpaces);
+      helpers.printCountTimes('#', numChars);
+      helpers.printCountTimes(' ', numEndSpaces);
+    } else if (i < height - 1 && i > 0){
+      helpers.printCountTimes(' ', numEndSpaces);
+      helpers.printCountTimes('#', numChars);
+      helpers.printCountTimes(' ', numMiddleSpaces);
+      helpers.printCountTimes('#', numChars);
+      helpers.printCountTimes(' ', numEndSpaces);
+    } else {
+      numChars = 1 + 2 * (height - 1);
+      helpers.printCountTimes('#', numChars);
+    }
 
     helpers.printNewLine();
   }
