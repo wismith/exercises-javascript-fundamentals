@@ -13,11 +13,10 @@
  */
 
 function replaceCharacter(string, target, replaceWith) {
-  // This is your job. :)
   let letters = string.split('');
   for (let letter of letters){
     if (letter === target){
-      letters[letters.indexOf(letter)] = replaceWith;
+      letters.splice(letters.indexOf(letter), 1, replaceWith);
     }
   }
   return letters.join('');
