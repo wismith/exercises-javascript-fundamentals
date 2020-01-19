@@ -14,14 +14,36 @@
  *   element removed.
  */
 function removeElement(array, element) {
-  // This is your job. :)
+  const newArray = [];
+  for (let item of array){
+    if (item !== element){
+      newArray.push(item);
+    }
+  }
+  return newArray;
 }
 
+function outputEqualsExpected(output,expected){
+  if (output.length !== expected.length){
+    return false;
+  }
+  
+  for (let i = 0; i < output.length; i++){
+    if (output[i] !== expected[i]){
+      return false;
+    }
+  }
+
+  return true;
+}
 if (require.main === module) {
   console.log('Running sanity checks for removeElement:');
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+  console.log(outputEqualsExpected(removeElement([1,2,3,3,4], 3), [1,2,4]));
+  console.log(outputEqualsExpected(removeElement(['hi', 'Im', 'Will'], 'hi'), ['Im', 'Will']));
+
 }
 
 module.exports = removeElement;
