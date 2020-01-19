@@ -19,14 +19,35 @@
  *  strictly greater the given threshold
  */
 function selectLongerThan(array, threshold) {
-  // This is your job. :)
+  const longerThan = [];
+  for (let element of array){
+    if (element.length > threshold){
+      longerThan.push(element);
+    }
+  }
+  return longerThan;
 }
 
+function outputEqualsExpected(output,expected){
+  if (output.length !== expected.length){
+    return false;
+  }
+  
+  for (let i = 0; i < output.length; i++){
+    if (output[i] !== expected[i]){
+      return false;
+    }
+  }
+
+  return true;
+}
 if (require.main === module) {
   console.log('Running sanity checks for selectLongerThan:');
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+  console.log(outputEqualsExpected(selectLongerThan(['hello', 'friend'], 4), ['hello', 'friend']));
+  console.log(outputEqualsExpected(selectLongerThan(['hi', 'mom'], 3), []));
 }
 
 module.exports = selectLongerThan;
