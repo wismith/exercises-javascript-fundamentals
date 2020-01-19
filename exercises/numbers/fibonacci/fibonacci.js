@@ -22,8 +22,6 @@
  * @returns {number} The fibonacci of num
  */
 function fibonacci(n) {
-  // This is your job. :)
-
   if (n === 0){
     return 0;
   } else if (n === 1){
@@ -31,9 +29,9 @@ function fibonacci(n) {
   } else {
     const fibSequence = [0,1];
     for (let i = 2; i <= n; i++){
-      let sumPrev2 = fibSequence[i-2] + fibSequence[i-1];
-      fibSequence.push(sumPrev2);
+      fibSequence.push(fibSequence[i-2]+fibSequence[i-1]);
     }
+    console.log(fibSequence);
     return fibSequence[n];
   }
 }
@@ -47,9 +45,11 @@ if (require.main === module) {
   // How else will you be sure your code does what you think it does?
 
   console.log(fibonacci(2) === 1);
+  
   console.log(fibonacci(3) === 2);
   console.log(fibonacci(5) === 5);
   console.log(fibonacci(7) === 13);
+  console.log(fibonacci(10) === 55);
 }
 
 module.exports = fibonacci;
