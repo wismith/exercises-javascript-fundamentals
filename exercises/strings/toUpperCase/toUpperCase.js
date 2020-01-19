@@ -16,7 +16,16 @@
  */
 
 function toUpperCase(string) {
-  // This is your job. :)
+  let stringUpper = '';
+  for (let char of string){
+    let charCode = char.charCodeAt();
+    if (charCode >= 97 && charCode <= 122){
+      stringUpper += String.fromCharCode(charCode - 32);
+    } else {
+      stringUpper += char;
+    }
+  }
+  return stringUpper;
 }
 
 if (require.main === module) {
@@ -24,6 +33,9 @@ if (require.main === module) {
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+  console.log(toUpperCase('hello friends')==='HELLO FRIENDS');
+  console.log(toUpperCase('hi tHERE!')==='HI THERE!');
+
 }
 
 module.exports = toUpperCase;
