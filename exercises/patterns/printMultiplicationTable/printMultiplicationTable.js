@@ -30,7 +30,22 @@ function printMultiplicationTable(n) {
     out how to align the columns.
   */
 
-  helpers.printNewLine();
+  for (let i = 1; i <= n; i++){
+    const multiples = [];
+    for (let j =1; j<=n; j++){
+      let product = i*j;
+      if (product < 10){
+        let multiple = ' ' + product.toString();
+        multiples.push(multiple);
+      } else {
+        let multiple = product.toString();
+        multiples.push(multiple);
+      }
+    }
+    helpers.print(multiples.join(' '));
+    helpers.printNewLine();
+  }
+  
 }
 
 /**
