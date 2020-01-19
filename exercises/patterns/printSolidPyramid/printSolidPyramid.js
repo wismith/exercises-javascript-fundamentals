@@ -23,7 +23,6 @@ let helpers = require('../printHelpers');
  *    ###
  *   #####
  *  #######
- * #########
  *
  * @param {number} height - The height of the pyramid to print
  */
@@ -36,11 +35,12 @@ function printSolidPyramid(height) {
     Work through 3-4 examples by hand and try to notice a pattern.
   */
   for (let i = 0; i < height; i++) {
-    let numSpaces = _____;
-    let numChars = _____;
+    let numSpaces = height - i - 1;
+    let numChars = 1 + 2*i;
 
     helpers.printCountTimes(' ', numSpaces);
     helpers.printCountTimes('#', numChars);
+    helpers.printCountTimes(' ', numSpaces);
     helpers.printNewLine();
   }
 }
