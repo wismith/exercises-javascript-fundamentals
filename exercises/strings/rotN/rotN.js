@@ -15,8 +15,19 @@
  * @returns {string} A lowercase copy of the input string
  */
 
-function rotN(string) {
-  // This is your job. :)
+function rotN(string,n) {
+  let stringLower = string.toLowerCase();
+  const alphabet2x = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz';
+  let newString = '';
+  for (let char of stringLower){
+    if (alphabet2x.includes(char)){
+      newString += alphabet2x[alphabet2x.indexOf(char) + n];
+    } else {
+      newString += char;
+    }
+  }
+  return newString;
+
 }
 
 if (require.main === module) {
@@ -24,6 +35,9 @@ if (require.main === module) {
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
+  console.log(rotN('Hello, world!', 13) === 'uryyb, jbeyq!');
+  console.log(rotN('Hello, world!', 9) === 'qnuux, fxaum!');
+
 }
 
 module.exports = rotN;
