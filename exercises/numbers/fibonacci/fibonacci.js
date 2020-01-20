@@ -28,12 +28,16 @@ function fibonacci(n) {
   if (n === 1){
     return 1;
   }
-  const fibLast2 = [0,1];
+  let fib1 = 0;
+  let fib2 = 1;
+  let fibNext;
+  
   for (let i = 2; i <= n; i++){
-    fibLast2.push(fibLast2[0]+fibLast2[1]);
-    fibLast2.shift();
+    fibNext = fib1 + fib2;
+    fib1 = fib2;
+    fib2 = fibNext;
   }
-  return fibLast2[1];
+  return fibNext;
 }
 
 if (require.main === module) {
@@ -42,8 +46,9 @@ if (require.main === module) {
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
 
+  console.log(fibonacci(0) === 0);
+  console.log(fibonacci(1) === 1);
   console.log(fibonacci(2) === 1);
-  
   console.log(fibonacci(3) === 2);
   console.log(fibonacci(5) === 5);
   console.log(fibonacci(7) === 13);
