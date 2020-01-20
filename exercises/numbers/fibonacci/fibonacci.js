@@ -24,19 +24,17 @@
 function fibonacci(n) {
   if (n === 0){
     return 0;
-  } else if (n === 1){
-    return 1;
-  } else {
-    const fibSequence = [0,1];
-    for (let i = 2; i <= n; i++){
-      fibSequence.push(fibSequence[i-2]+fibSequence[i-1]);
-    }
-    console.log(fibSequence);
-    return fibSequence[n];
   }
+  if (n === 1){
+    return 1;
+  }
+  const fibLast2 = [0,1];
+  for (let i = 2; i <= n; i++){
+    fibLast2.push(fibLast2[0]+fibLast2[1]);
+    fibLast2.shift();
+  }
+  return fibLast2[1];
 }
-
-console.log(fibonacci(3));
 
 if (require.main === module) {
   console.log('Running sanity checks for fibonacci:');
