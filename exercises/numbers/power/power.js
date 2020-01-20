@@ -21,7 +21,11 @@ function power(base, exponent) {
 
     That means you don't have to deal with, e.g., power(2, 1.5).
   */
-  return base**exponent;
+  let result = 1;
+  for (let i = 1; i <= exponent; i++){
+    result *= base;
+  }
+  return result;
 }
 
 if (require.main === module) {
