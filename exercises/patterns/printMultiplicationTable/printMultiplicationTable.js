@@ -34,19 +34,17 @@ function printMultiplicationTable(n) {
     const multiples = [];
     for (let j =1; j<=n; j++){
       let product = i*j;
-      if (product < 10){
-        let multiple = ' ' + product.toString();
-        multiples.push(multiple);
-      } else {
-        let multiple = product.toString();
-        multiples.push(multiple);
-      }
+      let multiple = product.toString().padStart((n**2).toString().length, ' ');
+      multiples.push(multiple);
+      
     }
+    
     helpers.print(multiples.join(' '));
     helpers.printNewLine();
   }
-  
 }
+  
+
 
 /**
  * For testing purposes, prints a diagram of the given height.
@@ -63,6 +61,8 @@ if (require.main === module) {
   multiplicationTablePrintTest(2);
   multiplicationTablePrintTest(5);
   multiplicationTablePrintTest(8);
+  multiplicationTablePrintTest(10);
+  multiplicationTablePrintTest(20);
 }
 
 module.exports = printMultiplicationTable;
