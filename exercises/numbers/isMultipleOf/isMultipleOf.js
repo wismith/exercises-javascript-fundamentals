@@ -29,9 +29,9 @@ if (require.main === module) {
 
   console.log('Checking 0:');
   console.log(isMultipleOf(0, 0) === false);
-  console.log(isMultipleOf(0, 1) === false);
-  console.log(isMultipleOf(0, 2) === false);
-  console.log(isMultipleOf(0, 13) === false);
+  console.log(isMultipleOf(0, 1) === true);
+  console.log(isMultipleOf(0, 2) === true);
+  console.log(isMultipleOf(0, 13) === true);
 
   console.log('');
   console.log('Checking multiples of 2:');
